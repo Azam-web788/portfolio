@@ -1,66 +1,61 @@
 import React from "react";
 import Navbar from "../components/Navbar.jsx";
 import { motion } from "framer-motion";
-import firstproject from "../../public/project1.jpg"
-import secondproject from "../../public/project2.jpg"
-import thiredproject from "../../public/project7.jpg"
-import fourthproject from "../../public/project4.jpg"
-import fifthproject from "../../public/project5.jpg"
-import sixthproject from "../../public/project6.jpg"
 // import { FiExternalLink } from "react-icons/fi"
 import { MdOpenInNew } from "react-icons/md"
 import { FaGithub } from "react-icons/fa";
+import Cursor from "../components/Cursor.jsx";
 
 // ✅ Projects Data (yahan tum links baad mein add kar dena)
 const projects = [
   {
     title: "Firestore CRUD",
     description: "A dynamic web application built using HTML, CSS, JavaScript and Firebase Firestore. It allows users to perform full CRUD operations — create, read, update and delete data in real-time without any page refresh, powered by Firestore's live database.",
-    image: firstproject,
+    image: "https://res.cloudinary.com/difaskylg/image/upload/v1778060357/project1_eknng8.jpg",
     live: "https://azam-web788.github.io/Firebase-firestore-Project/",
     github: "https://github.com/Azam-web788/Firebase-firestore-Project",
   },
   {
     title: "Phone Market",
     description: "A fully responsive phone store website developed with HTML, CSS and JavaScript. It features a clean and modern product listing layout where users can browse different phone models with smooth UI interactions and an attractive storefront design.",
-    image: secondproject,
+    image: "https://res.cloudinary.com/difaskylg/image/upload/v1778060367/project2_me9shu.jpg",
     live: "https://azam-web788.github.io/Phone-app/",
     github: "https://github.com/Azam-web788/Phone-app",
   },
   {
-    title: "Filtered Products",
+    title: "Product Api",
     description: "An interactive product filtering application built with HTML, CSS and JavaScript. Users can search and filter products dynamically based on categories without any page reload, making the browsing experience fast, smooth and user friendly.",
-    image: thiredproject,
+    image: "https://res.cloudinary.com/difaskylg/image/upload/v1778060422/project7_uwpaeg.jpg",
     live: "https://azam-web788.github.io/Product-Api/",
     github: "https://github.com/Azam-web788/Product-Api",
   },
   {
     title: "Fullstack Blogging App",
     description: "A complete full stack blogging platform developed using React.js on the frontend with Express.js and MongoDB on the backend. Users can register, login, create new blog posts, edit existing ones and delete them, with all data stored securely in MongoDB.",
-    image: fourthproject,
-    live: "https://blogging-app-blog-hub.vercel.app/",
-    github: "https://github.com/Azam-web788/Blogging-app-Blog-Hub-",
+    image: "https://res.cloudinary.com/difaskylg/image/upload/v1778060391/project4_mzydlt.jpg",
+    live: "https://blogging-app-f18.vercel.app/",
+    github: "https://github.com/Azam-web788/Blogging-app",
   },
   {
     title: "Text Utils",
     description: "A feature-rich text utility application built entirely with React.js. It provides multiple tools to manipulate text such as converting to uppercase or lowercase, removing extra spaces, copying text to clipboard and counting words and characters in real time.",
-    image: fifthproject,
+    image: "https://res.cloudinary.com/difaskylg/image/upload/v1778060403/project5_ankwid.jpg",
     live: "https://text-utils-reactjs-fawn.vercel.app/",
     github: "https://github.com/Azam-web788/Text-Utils-Reactjs",
   },
   {
     title: "MERN Authentication",
     description: "A robust and secure full stack authentication system built with React.js, Express.js and MongoDB. It includes complete user registration and login functionality, JWT based authentication, protected routes and session management for a safe user experience.",
-    image: sixthproject,
-    live: "#",
-    github: "#",
+    image: "https://res.cloudinary.com/difaskylg/image/upload/v1778060415/project6_hdo6bw.jpg",
+    live: "https://fullstack-authentication-5v1s.vercel.app",
+    github: "https://github.com/Azam-web788/fullstack-authentication",
   },
 ];
 
 export default function Projects() {
   return (
     <div className="min-h-screen bg-[#020b1f] text-white relative overflow-hidden">
-      
+      <Cursor />
       <Navbar />
 
       {/* Glow Blobs */}

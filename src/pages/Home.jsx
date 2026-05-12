@@ -4,6 +4,7 @@ import { Download } from "lucide-react";
 import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import {motion} from "framer-motion";
+import Cursor from "../components/Cursor.jsx";
 const titles = [
   "Full Stack Developer",
   "MERN Stack Developer", 
@@ -42,7 +43,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#020b1f] text-white relative overflow-hidden">
-      
+      <Cursor />
       <Navbar />
 
       {/* Glow Blobs */}
@@ -108,19 +109,43 @@ export default function Home() {
             transition={{ delay: 0.6 }}
             className="flex gap-4 flex-wrap mt-2"
           >
-            <motion.a
-              whileHover={{ scale: 1.08 }}
-              whileTap={{ scale: 0.95 }}
-              href="./cv.pdf"
-              download="./cv.pdf"
-              className="px-7 py-3 rounded-full font-bold text-white flex items-center gap-2"
-              style={{
-                background: 'linear-gradient(135deg, #2563eb, #06b6d4)',
-                boxShadow: '0 0 20px #2563eb55',
-              }}
-            >
-              <Download /> Download CV
-            </motion.a>
+            <motion.div 
+  whileHover={{ scale: 1.08 }} 
+  whileTap={{ scale: 0.95 }}
+>
+  <motion.a
+    href="./cv.pdf"
+    download="./cv.pdf"
+      id="cv-button"
+    className="
+      relative
+      px-7
+      py-3
+      rounded-full
+      text-white
+      font-bold
+      overflow-hidden
+      group
+      flex
+      items-center
+      gap-2
+    "
+  >
+    
+    {/* Content */}
+    <span className="relative z-10 flex items-center gap-2">
+      <Download size={20} />
+      Download CV
+    </span>
+
+    {/* Animated Gradient */}
+    <span className="absolute inset-0 bg-[linear-gradient(270deg,#2563eb,#1d4ed8,#0ea5e9,#2563eb)] bg-[length:600%_600%] animate-[gradientMove_6s_ease_infinite]"></span>
+
+    {/* Glow */}
+    <span className="absolute inset-0 blur-xl opacity-60 group-hover:opacity-100 transition bg-blue-500"></span>
+
+  </motion.a>
+</motion.div>
 
             {/* Social Icons */}
             <div className="flex gap-3 mt-2">
@@ -136,7 +161,7 @@ export default function Home() {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center text-[#93c5fd] border border-[#60a5fa] rounded-full p-2"
+                  className="flex items-center justify-center text-[#93c5fd] border border-[#60a5fa] rounded-full p-2 hover:shadow-[0_0_10px_#2563eb55]"
                   style={{ width: '44px', height: '44px' }}
                 >
                   {icon}

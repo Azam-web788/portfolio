@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Home, User, Folder, Mail , Briefcase } from "lucide-react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
@@ -40,10 +40,10 @@ export default function Navbar() {
           transition={{ repeat: Infinity, duration: 2 }}
           className="text-3xl font-extrabold tracking-widest relative group"
         >
-          <span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-cyan-400 bg-clip-text text-transparent">
+          <NavLink to="/" className="relative z-10 bg-gradient-to-r from-blue-400 via-indigo-400 to-cyan-400 bg-clip-text text-transparent">
             AZAM
-          </span>
-          <span className="absolute inset-0 blur-lg opacity-40 bg-gradient-to-r from-blue-400 via-indigo-400 to-cyan-400 group-hover:opacity-70 transition"></span>
+          </NavLink>
+          <span className="absolute inset-0 blur-lg opacity-40 bg-gradient-to-r from-blue-400 via-indigo-400 to-cyan-400 group-hover:opacity-70 transition pointer-events-none"></span>
         </motion.h1>
 
         {/* Desktop Menu */}

@@ -4,11 +4,13 @@ import Navbar from "../components/Navbar.jsx";
 import { motion } from "framer-motion";
 import { FaCss3Alt, FaGitAlt, FaHtml5, FaJs, FaNodeJs, FaReact } from "react-icons/fa";
 import { SiBootstrap, SiExpress, SiFirebase, SiMongodb, SiNextdotjs, SiTailwindcss } from "react-icons/si";
+import Cursor from "../components/Cursor.jsx";
+import AboutImage3D from "../components/AboutImage.jsx";
 
 export default function About() {
   return (
     <div className="min-h-screen bg-[#020b1f] text-white relative overflow-hidden">
-      
+      <Cursor />
       <Navbar />
 
       {/* Glow Blobs */}
@@ -27,7 +29,11 @@ export default function About() {
           transition={{ duration: 0.8 }}
           className="flex flex-col gap-5 flex-1"
         >
-          <h1 className="text-5xl font-black">
+          <motion.h1
+          initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+          className="text-5xl font-black">
             About{" "}
             <span style={{
               background: 'linear-gradient(90deg, #60a5fa, #22d3ee, #818cf8)',
@@ -36,7 +42,7 @@ export default function About() {
             }}>
               Me
             </span>
-          </h1>
+          </motion.h1>
 
           <motion.p
             initial={{ opacity: 0 }}
@@ -75,74 +81,27 @@ export default function About() {
         </motion.div>
 
         {/* Right Image + Rings */}
-        <motion.div
-          initial={{ opacity: 0, x: 80 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className="relative flex-shrink-0 flex items-center justify-center"
-          style={{ width: "280px", height: "280px" }}
-        >
-
-          {/* Ring 1 */}
-          <div style={{
-            position: 'absolute',
-            width: '370px', height: '370px',
-            borderRadius: '50%',
-            border: '2px dashed #3b82f6',
-            borderTopColor: 'transparent',
-            borderRightColor: 'transparent',
-            animation: 'spinCW 4s linear infinite',
-            opacity: 0.8,
-          }} />
-
-          {/* Ring 2 */}
-          <div style={{
-            position: 'absolute',
-            width: '320px', height: '320px',
-            borderRadius: '50%',
-            border: '2px dashed #22d3ee',
-            borderBottomColor: 'transparent',
-            borderLeftColor: 'transparent',
-            animation: 'spinCCW 3s linear infinite',
-            opacity: 0.8,
-          }} />
-
-          {/* Ring 3 */}
-          <div style={{
-            position: 'absolute',
-            width: '290px', height: '290px',
-            borderRadius: '50%',
-            border: '1.5px dashed #818cf8',
-            borderTopColor: 'transparent',
-            animation: 'spinCW 6s linear infinite',
-            opacity: 0.5,
-          }} />
-
-          {/* Image */}
-          <img
-            src="https://avatars.githubusercontent.com/u/187546672?v=4"
-            alt="Azam"
-            style={{
-              width: '270px', height: '270px',
-              borderRadius: '50%',
-              objectFit: 'cover',
-              border: '3px solid #2563eb',
-              boxShadow: '0 0 30px #2563eb88, 0 0 60px #06b6d433',
-              position: 'relative',
-              zIndex: 10,
-            }}
-          />
-
-        </motion.div>
+        {/* Right Image + Rings (3D VERSION) */}
+<motion.div
+  initial={{ opacity: 0, x: 80 }}
+  animate={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.8 }}
+>
+  <AboutImage3D />
+</motion.div>
 
       </div>
       <div>
-  <h1 className="text-4xl font-bold text-center mt-15 text-white">
+  <motion.h1
+  initial={{ opacity: 0, y: -40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+  className="text-4xl font-bold text-center mt-15 text-white">
     My Professional Skills
-  </h1>
+  </motion.h1>
 
   {/* Skills Grid */}
-  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 mt-12 px-10 max-w-[1100px] mx-auto">
+  <motion.div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 mt-12 px-10 max-w-[1100px] mx-auto">
 
     {[
       { name: "HTML", icon: <FaHtml5 size={40} className="text-orange-500" /> },
@@ -158,30 +117,23 @@ export default function About() {
       { name: "Git", icon: <FaGitAlt size={40} className="text-orange-600" /> },
       { name: "Firebase", icon: <SiFirebase size={40} className="text-yellow-500" /> },
     ].map((skill, index) => (
-      <div
+      <motion.div
         key={index}
+        initial={{ opacity: 0, y: 60 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: index * 0.2 }}
         className="flex flex-col items-center justify-center p-5 rounded-xl border border-blue-900/30 bg-[#020b1f]/60 backdrop-blur-md hover:scale-105 transition duration-300 hover:shadow-[0_0_20px_#2563eb55]"
       >
         {skill.icon}
         <p className="mt-3 text-sm text-blue-200">{skill.name}</p>
-      </div>
+      </motion.div>
     ))}
-
-  </div>
+    <br /><br />
+  </motion.div>
 </div>
 
 
-      {/* Keyframes */}
-      <style>{`
-        @keyframes spinCW {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-        @keyframes spinCCW {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(-360deg); }
-        }
-      `}</style>
+      
 
     </div>
   );

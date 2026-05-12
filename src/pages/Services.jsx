@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar.jsx";
 import { motion } from "framer-motion";
 import { Monitor, Server, Database, Globe } from "lucide-react";
+import Cursor from "../components/Cursor.jsx";
 
 const services = [
   {
@@ -37,7 +38,7 @@ const services = [
 export default function Services() {
   return (
     <div className="min-h-screen bg-[#020b1f] text-white relative overflow-hidden">
-
+      <Cursor />
       <Navbar />
 
       {/* Glow Blobs */}
